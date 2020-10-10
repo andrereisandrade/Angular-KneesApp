@@ -1,0 +1,35 @@
+<div id="contact" class="container">
+    <br>
+    <h3 id="mockUser" class="text-center">Conta Anunciante</h3>
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a routerLinkActive="active" routerLink="/anunciante/painel/perfil">
+                        <p><span class="glyphicon glyphicon-user"></span> Perfil</p>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a id="menagerEvent" routerLink="/anunciante/painel/gerenciar/evento">
+                        <span class="glyphicon glyphicon-ok"></span> Gerenciar Eventos
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a routerLink="/anunciante/painel/conta">
+                        <p><span class="glyphicon glyphicon-tasks"></span> Relatório</p>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a routerLinkActive="active" routerLink="/anunciante/painel/conta">
+                        <p><span class="glyphicon glyphicon-tasks"></span> Conta</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

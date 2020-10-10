@@ -1,0 +1,42 @@
+<div id="contact" class="container">
+    <div class="container-fluid">
+        <div class="row top-event">
+            <div class="col-md-7">
+                <img style="height:300px; width:500px" src="{{event.photo}}" alt="...">
+            </div>
+            <div class="col-md-4 text-center">
+                <h5>{{ event.name}}</h5>
+                <ul class="list-group">
+                    <li class="list-group-item disabled">
+                        <span class="ion-ios-calendar-outline"></span> {{ event.date | date }}
+                    </li>
+                    <li class="list-group-item disabled">
+                        <i class="fa fa-map-marker fa-lg " aria-hidden="true"></i> <small>{{event.address}}</small>
+                    </li>
+                    <li class="list-group-item" [hidden]="event.externalEvent">300 Confirmaram Presença</li>
+                    <li class="list-group-item" [hidden]="!event.externalEvent">
+                        <a type="button" class="btn btn-primary" href="https://www.facebook.com/events/{{event.id}} " target="_blank">
+                  <i class="fa fa-facebook-square" aria-hidden="true"></i> Ver evento no Facebook</a>
+                    </li>
+                    <li class="list-group-item" [hidden]="event.externalEvent">
+                        <a type="button" class="btn btn-primary" target="_blank">
+                    <i class="fa fa-check"  aria-hidden="true"></i> Confirm Presença</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Descrição</h5>
+                <small><p>{{ event.description}}</p></small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="iframe-container">
+                    <app-map-location></app-map-location>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

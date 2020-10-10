@@ -1,0 +1,103 @@
+<div class="container text-center">
+    <br>
+    <br>
+    <h2>Cadastrar Participante</h2>
+    <br>
+    <br>
+    <form [formGroup]="participantForm" novalidate (ngSubmit)="save()" class="form-horizontal">
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="name" [hidden]="participantForm.untouched || participantForm.touched">Digite seu Nome de Participante:</label>
+                <input id="name" name="name" class="form-control input-md" type="text" placeholder="Nome do Participante" [(ngModel)]="participant.name"
+                    formControlName="name" maxlength="100">
+                <div class="alert alert-danger" [hidden]="participantForm.controls.name.valid || participantForm.controls.name.untouched">
+                    <div *ngIf="participantForm.controls['name'].hasError('required')">
+                        Por-favor insira seu nome antes de continuar
+                    </div>
+                    <div *ngIf="participantForm.controls['name'].hasError('minlength')">
+                        O tamanho mínimo do nome deve ser 3
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="email" [hidden]="participantForm.untouched || participantForm.touched">Digite seu Email:</label>
+                <input id="email" name="email" class="form-control input-md" type="text" placeholder="E-Mail" ngControl="email" [(ngModel)]="participant.email"
+                    formControlName="email" maxlength="128" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$">
+
+                <div class="alert alert-danger" [hidden]="participantForm.controls.email.valid || participantForm.controls.email.untouched">
+                    <div *ngIf="participantForm.controls['email'].hasError('required')">
+                        Por-favor insira seu email antes de continuar
+                    </div>
+                    <div *ngIf="participantForm.controls['email'].hasError('pattern')">
+                        Esse email é inválido. Por favor insira um email válido
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="password" [hidden]="participantForm.untouched || participantForm.touched">Digite uma senha:</label>
+                <input id="password" name="password" [(ngModel)]="participant.password" formControlName="password" type="password" placeholder="Digite uma senha"
+                    class="form-control input-md">
+                <div class="alert alert-danger" [hidden]="participantForm.controls.password.valid || participantForm.controls.password.untouched">
+                    <div *ngIf="participantForm.controls['password'].hasError('required')">
+                        Digite uma senha válida para continuar
+                    </div>
+                    <div *ngIf="participantForm.controls['password'].hasError('minlength')">
+                        O tamanho mínimo da senha deve ser 6
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="confirm_password" [hidden]="participantForm.untouched || participantForm.touched">Digite a mesma senha:</label>
+                <input id="confirm_password" name="confirm_password" [(ngModel)]="participant.confirm_password" formControlName="confirm_password"
+                    type="password" class="form-control input-md" placeholder="Digite a mesma senha">
+                <div class="alert alert-danger" [hidden]="participantForm.controls.confirm_password.valid || participantForm.controls.confirm_password.untouched">
+                    <div *ngIf="participantForm.controls.confirm_password.errors?.MatchPassword || participantForm.controls['password'].hasError('required')">
+                        Password not match
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="phone" [hidden]="participantForm.untouched || participantForm.touched">Digite seu Telefone:</label>
+                <input id="phone" name="phone" type="text" [(ngModel)]="participant.phone" formControlName="phone" placeholder="Telefone: (11)9 9999-9999"
+                    class="form-control input-md" [textMask]="{mask: maskPhone}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="phone" [hidden]="participantForm.untouched || participantForm.touched">Digite sua Data de Nascimento:</label>
+                <input id="birthDate" name="birthDate" [(ngModel)]="participant.birthDate" formControlName="birthDate" class="form-control input-md"
+                    placeholder="Data de Nascimento" (onmouseover)="inputFields()">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="checkbox" name="termsAndConditions" id="termsAndConditions" formControlName="termsAndConditions">
+                <label for="termsAndConditions">
+         concordo e aceito 
+          <b>
+            <a target="_blank" href="en/termsAndConditions">Termos e condições</a>
+          </b>
+          e
+          <b>
+            <a target="_blank" href="en/privacy">Politica de Privacidade</a>
+          </b>
+        </label>
+                <div class="alert alert-danger" [hidden]="participantForm.controls.termsAndConditions.valid || participantForm.controls.termsAndConditions.untouched">
+                    <div>
+                        É necessário concordar e aceitar antes de continuar
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="cancel()">Cancelar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!participantForm.valid">Criar Conta</button>
+        </div>
+    </form>
+</div>

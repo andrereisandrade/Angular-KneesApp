@@ -1,0 +1,62 @@
+<div class="container container-event">
+  <div class="row">
+    <div class="col-md-3">
+      <div class=" box-filter">
+        <div>
+          <p>Categoria</p>
+          <ng-select [allowClear]="true" [items]="categories" [disabled]="disabled" (data)="refreshValue($event)" (selected)="selectedCategory($event)"
+            (removed)="removed($event)" (typed)="typed($event)" placeholder="Selecione uma categoria">
+            </ng-select>
+        </div>
+        <div>
+          <p>Data </p>
+          <input type="text" id="test" class="form-control" placeholder="Selecione uma data" bsDatepicker [(ngModel)]="datepickerModel"
+          />
+        </div>
+        <div>
+          <p>Cidade</p>
+          <ng-select [allowClear]="true" [items]="cities" [disabled]="disabled" (data)="refreshValue($event)" (selected)="selectedCity($event)"
+            (removed)="removed($event)" (typed)="typed($event)" placeholder="Selecione Uma Cidade">
+            </ng-select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12 search_event">
+          <div class="input-group">
+
+            <input type="text" class="form-control" (input)="search($event)" placeholder="Pesquise eventos por aqui" aria-label="Pesquise eventos por aqui">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button"><span class="ion-ios-search-strong"></span></button>
+            </span>
+          </div>
+        </div>
+        <div *ngFor="let event of events" class="col-md-6">
+          <a [routerLink]="[event.id]">
+            <div class="custom-card">
+              <div class="event-image" [ngStyle]="{'background-image': 'url(' + event.photo + ')'}"></div>
+              <div class="caption">
+                <p><b>{{ event.name }}</b></p>
+                <div class="information">
+                  <div class="date-event">
+                    <p><span class="ion-ios-calendar-outline"></span> {{ event.date | date }}</p>
+                  </div>
+                  <div class="link-facebook" [hidden]="!event.externalEvent" >
+                    <a class="btn " href="https://www.facebook.com/events/{{event.id}} " target="_blank">
+                      <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 box-more-items-button">
+            <button class="more-items-button"><span class="ion-arrow-down-c"></span> Mais eventos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

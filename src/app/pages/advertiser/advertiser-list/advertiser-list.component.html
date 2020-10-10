@@ -1,0 +1,13 @@
+<div class="container main-body">
+  <div class="row">
+    <div *ngFor="let advertiser of advertiserList" class="col-md-3">
+      <a [routerLink]="[advertiser.id]">
+        <div class="custom-card">
+          <div class="advertiser-image" [ngStyle]="{'background-image': 'url(' + advertiser.photo + ')'}"></div>
+          <div class="caption">
+            <p>{{ advertiser.name }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>

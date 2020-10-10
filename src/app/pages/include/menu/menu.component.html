@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light custom-nav">
+  <a class="navbar-brand" href="#"><img src="/assets/images/logo.png"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-menu">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/anunciante" class="nav-link">Anunciantes</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/evento" class="nav-link">Eventos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Contato</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Baixar App</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item">
+        <a *ngIf="logged" routerLink="/participante/painel/perfil" class="nav-link"> <img  src="{{user.photo}}">{{user.name}}</a>
+        <ul class="submenu">
+          <li><a href=""><i class="fa fa-refresh" aria-hidden="true"></i>Modo Anunciante</a></li>
+          <li><a id="logout" href="" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a></li>
+        </ul>
+      </li>
+      <li *ngIf="!logged" class="nav-link">
+        <a routerLinkActive="active" id="login" routerLink="/login" class="nav-link"><span class="oi oi-lock-locked"></span> Acessar Conta</a>
+      </li>
+    </ul>
+  </div>
+</nav>

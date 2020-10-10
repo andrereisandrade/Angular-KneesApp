@@ -1,0 +1,47 @@
+<div class="container main-body">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="advertiser-image" [ngStyle]="{'background-image': 'url(' + advertiser.photo + ')'}"></div>
+    </div>
+    <div class="col-md-10">
+      <p class="align-title-advertiser">{{advertiser.name}}</p>
+    </div>
+    <div class="col-md-6">
+      <p>Localização: {{advertiser.address}}</p>
+      <p>Site: {{advertiser.site}}</p>
+      <p>E-mail: {{advertiser.email}}</p>
+    </div>
+    <div class="col-md-6">
+      <p>Facebook: {{advertiser.facebook}}</p>
+      <p>Telefone: {{advertiser.phone}}</p>
+    </div>
+    <div class="col-md-12">
+      <p>Sobre:</p>
+      <p>
+        {{advertiser.description}}
+      </p>
+    </div>
+    <div class="col-md-12">
+      <br>
+      <br>
+      <h6>Próximos eventos criado por {{advertiser.name}}</h6>
+      <hr>
+      <div class="row">
+        <div *ngFor="let event of eventList" class="col-md-4">
+          <a [routerLink]="['/evento',event.id]">
+            <div class="custom-card">
+              <div class="event-image" [ngStyle]="{'background-image': 'url(' + event.photo + ')'}"></div>
+              <div class="caption">
+                <p>
+                  <b>{{event.name}}</b>
+                </p>
+                <p>
+                  <span class="ion-ios-calendar-outline"></span> {{event.date | date}}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

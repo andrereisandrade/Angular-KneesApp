@@ -1,0 +1,21 @@
+/*.ng-valid[required], .ng-valid.required, .ng-valid:not(form)  {
+  border-left: 5px solid #42A948;  green 
+}*/
+
+input:valid  {
+    border-left: 5px solid #42A948; 
+ }
+  
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}
+.container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  min-height: 500px;
+}
+
+  /*
+  input.noRequired {
+    border-left: 5px solid purple; 
+  }/* MUdar isso pra ficar sem borda os que não forem requeridos*/

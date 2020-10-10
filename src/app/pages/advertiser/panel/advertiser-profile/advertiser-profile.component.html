@@ -1,0 +1,87 @@
+<div class="container-fluid">
+  <div class="row box">
+    <form #formAdvertiser="ngForm" (ngSubmit)="save()">
+      <div class="row">
+        <div class="col-md-4">
+          <img width="200" src="{{advertiser.photo}}">
+          <div class="form-group col-md-12">
+
+            <label  class="btn btn-primary" *ngIf="editMode" style="float:none">
+              Atualizar imagem
+              <input type="file" style="display: none" (change)="onFileChange($event)" />
+            </label>
+          </div>
+        </div>
+        <div class="col-md-8" *ngIf="editMode">
+          <h3 class="text-center">
+            <small>Informações Gerais</small>
+          </h3>
+
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label>Nome</label>
+              <input type="text" name="name" [(ngModel)]="advertiser.name" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+              <label>E-mail</label>
+              <input type="text" disabled name="email" [(ngModel)]="advertiser.email" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Telefone</label>
+              <input type="text" name="phone" [(ngModel)]="advertiser.phone" class="form-control">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Endereço</label>
+              <app-map-location [address]="advertiser.address" (onAddress)="setAddress($event)"></app-map-location>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Facebook</label>
+              <input type="text" name="facebook" [(ngModel)]="advertiser.facebook" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Site</label>
+              <input type="text" name="site" [(ngModel)]="advertiser.site" class="form-control">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Descrição</label>
+              <textarea name="description" [(ngModel)]="advertiser.description" class="form-control"></textarea>
+            </div>
+            <div class="form-group col-md-12">
+              <button class="btn btn-primary">Salvar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8" *ngIf="!editMode">
+          <p>
+            <small>Nome: {{advertiser.name}}.</small>
+          </p>
+          <p>
+            <small>Email: {{advertiser.email}}</small>
+          </p>
+          <p>
+            <small>Telefone: {{advertiser.phone}}</small>
+          </p>
+          <p>
+            <small>Endereço: {{advertiser.address}}</small>
+          </p>
+          <p>
+            <small>Facebook: {{advertiser.facebook}}</small>
+          </p>
+          <p>
+            <small>site: {{advertiser.site}}</small>
+          </p>
+          <p>
+            <small>Descrição: {{advertiser.description}}</small>
+          </p>
+          <div class="form-group col-md-12">
+            <button (click)="setEditMode()" class="btn btn-primary">Editar</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <br>
+</div>

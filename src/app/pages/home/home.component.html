@@ -1,0 +1,72 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="overlay"></div>
+      <img class="d-block w-100" src="assets/images/slide-1.jpg" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Fique por dentro dos melhores eventos perto de você!</h3>
+        <p>...</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="overlay"></div>
+      <img class="d-block w-100" src="assets/images/slide-2.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Fique por dentro dos melhores eventos perto de você!</h3>
+        <p>...</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Eventos populares</h3>
+      <hr>
+    </div>
+  </div>
+  <div>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
+      <div ngxSlickItem *ngFor="let event of events" class="slide">
+        <a [routerLink]="['/evento', event.id]">
+          <div class="custom-card">
+            <div class="event-image" [ngStyle]="{'background-image': 'url(' + event.photo + ')'}"></div>
+            <div class="caption">
+              <p><b>{{ event.name }}</b></p>
+              <div class="information">
+                <div class="date-event">
+                  <p><span class="ion-ios-calendar-outline"></span> {{ event.date | date }}</p>
+                </div>
+                <div class="link-facebook" [hidden]="!event.externalEvent" >
+                  <a class="btn " href="https://www.facebook.com/events/{{event.id}} " target="_blank">
+                    <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </ngx-slick>
+  </div>
+  <div class="row">
+    <div class="col-md-12 box-mobile-image">
+      <h3>Conheça nosso App</h3>
+      <hr>
+      <img src="assets/images/kneesapp-mobile-mockup.png">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+input[type='file'] {
+    background: blue;
+  }
+  
+  /* Aparência que terá o seletor de arquivo */
+  .box{
+    padding: 10px;
+    border:  1px ridge #bfbaba;
+  }
+
+  .btn-primary{
+    width: 150px;
+    float: right;
+  }
+
+  form{
+    width: 100%;
+  }

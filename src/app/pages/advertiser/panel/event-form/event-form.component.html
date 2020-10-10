@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <form [formGroup]="eventForm" (ngSubmit)="saveEvent()">
+        <div class="form-group row">
+            <label class="form-check-label">
+              <input type="checkbox" (click)="toogleFacebook(eventFacebook)" [checked]="eventFacebook" class="form-check-input" id="checkboxSuccess" value="option1">
+              Evento do facebook
+            </label>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Link:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="linkEvent" formControlName="link">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-12">
+                <div class="thumbnail">
+                    <label style="float:none" style="width:100%; cursor:pointer;">
+                          <img src="{{event.photo}}" height="400px" style="width:100%" alt="Fjords" >
+              <input type="file" style="display: none" (change)="onChange($event)" />
+            </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label for="">Nome do Evento</label>
+                <input type="text" class="form-control" id="name" formControlName="name" required autofocus>
+            </div>
+            <div class="col-sm-6">
+                <label for="">Data</label>
+                <input type="text" id="data" class="form-control" formControlName="date" placeholder="Selecione uma data" bsDatepicker [(ngModel)]="datepickerModel" />
+                <!-- <input type="date" id="test" class="form-control" placeholder="Selecione uma data" formControlName="date" required autofocus/> -->
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label for="">Categoria</label>
+                <ng-select [allowClear]="true" [items]="categories" (data)="refreshValue($event)" (selected)="selectedCategory($event)" (removed)="removed($event)" (typed)="typed($event)" placeholder="Selecione uma categoria">
+                </ng-select>
+            </div>
+            <div class="col-sm-6">
+                <label for="">Hora</label>
+                <input type="time" class="form-control" id="hour" formControlName="hour" required autofocus>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Descrição</label>
+                    <textarea class="form-control" id="description" formControlName="description" required autofocus rows="4"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <div class="iframe-container">
+                    <app-map-location (onAddress)="setAddress($event)"></app-map-location>
+                </div>
+            </div>
+        </div>
+        <button id="saveEvent" type="submit" class="btn btn-primary btn-block">Salvar</button>
+    </form>
+    <br>
+    <br>
+</div>

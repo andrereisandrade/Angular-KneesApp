@@ -1,0 +1,21 @@
+  <div class="row ">
+    <div class="col-md-12 search_event">
+      <div class="input-group">
+  
+        <input type="text" class="form-control" placeholder="Pesquise anunciantes por aqui" aria-label="Pesquise eventos por aqui">
+        <span class="input-group-btn">
+              <button class="btn btn-primary" type="button"><span class="ion-ios-search-strong"></span></button>
+        </span>
+      </div>
+    </div>
+    <div *ngFor="let advertiser of advertiserList" class="col-md-6">
+      <a routerLink="/anunciante/{{advertiser.id}}">
+        <div class="custom-card">
+          <div class="event-image" [ngStyle]="{'background-image': 'url(' + advertiser.photo + ')'}"></div>
+          <div class="caption">
+            <p><b>{{ advertiser.name }}</b></p>
+           </div>
+        </div>
+      </a>
+    </div>
+  </div>

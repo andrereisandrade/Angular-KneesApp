@@ -1,0 +1,16 @@
+.advertiser-image{
+    height: 100px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.align-title-advertiser{
+    position: relative;
+    top: 40%;
+}
+
+p{
+    font-size: 13px;
+}
+

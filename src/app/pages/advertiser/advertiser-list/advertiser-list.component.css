@@ -1,0 +1,14 @@
+.advertiser-image{
+    height: 165px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+a{
+    text-decoration: none;
+}
+
+.custom-card{
+    text-align: center;
+}

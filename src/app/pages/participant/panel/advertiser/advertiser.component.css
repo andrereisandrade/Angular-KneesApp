@@ -1,0 +1,66 @@
+a:hover{
+    text-decoration: none;
+}
+
+p{
+    max-width: 100ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.custom-card{
+    margin: 0 0 20px 0;
+}
+
+.container-event{
+    margin-top: 50px;
+}
+
+.dropdown-menu{
+    display: block!important;
+}
+
+.ui-select-choices[_ngcontent-c4]{
+    display: block;
+}
+
+.box-filter{
+    border: 1px solid #dadada;
+    padding: 10px;
+}
+
+.box-filter p{
+    margin: 10px 0;
+}
+
+.text-muted{
+    color: red;
+}
+
+.search_event{
+    margin-bottom: 50px;
+}
+
+.more-items-button{
+    border: 1px solid #c5c5c5;
+    border-radius: 30px;
+    background: white;
+    padding: 2px 12px;
+}
+
+.box-more-items-button{
+    text-align: center;
+    margin: 50px 0 50px;
+}
+
+.event-image{
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    margin-bottom: 5%;
+    min-height: 600px;
+}

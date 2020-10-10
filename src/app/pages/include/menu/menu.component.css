@@ -1,0 +1,54 @@
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 10px;
+    margin: 9px;
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+    color: rgba(0,0,0,.5);
+}
+
+.navbar-nav  .active {
+    background: white;
+    border-radius: 22px;
+    color: black !important;
+}
+
+.custom-nav{
+    background: #5358a6;
+    background: -moz-linear-gradient(left, #5358a6 0%, #71a3cf 100%);
+    background: -webkit-linear-gradient(left, #5358a6 0%,#71a3cf 100%);
+    background: linear-gradient(to right, #5358a6 0%,#71a3cf 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5358a6', endColorstr='#71a3cf',GradientType=1 );
+    padding: 0 1rem;
+}
+
+.nav-link img{
+    border-radius: 10px;
+    width:30px;
+     height:30px;
+     margin: 5px;
+}
+
+.navbar-nav li:hover .submenu {
+    display: block;
+    max-height: 300px;
+    list-style-type: none;
+  }
+
+  .submenu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .submenu a{
+    color: black;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-decoration: none;
+    display: block;
+  }

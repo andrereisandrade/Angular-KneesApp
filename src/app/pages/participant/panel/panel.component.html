@@ -1,0 +1,36 @@
+<div class="container">
+    <br>
+    <h3 class="text-center">Conta Participante</h3>
+    <br>
+
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a routerLink="/participante/painel/perfil" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+                        <p><span class="glyphicon glyphicon-user"></span> Perfil</p>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a routerLink="/participante/painel/eventos/confirmado">
+                        <p><span class="glyphicon glyphicon-ok"></span> Eventos Confirmados</p>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a routerLink="/participante/painel/anunciantes/seguido">
+                        <p><span class="glyphicon glyphicon-tasks"></span> Anunciantes Seguidos</p>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a routerLinkActive="active" routerLink="/participante/painel/conta">
+                        <p><span class="glyphicon glyphicon-tasks"></span> Conta</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-8">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
