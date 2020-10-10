@@ -1,10 +1,10 @@
-
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 import { CommonModule } from '@angular/common';
-import { AgmCoreModule } from "@agm/core";
-import { MapLocationComponent } from "app/pages/ka-components/map-location/map-location.component";
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { MapLocationComponent } from 'app/pages/ka-components/map-location/map-location.component';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { MapLocationComponent } from "app/pages/ka-components/map-location/map-l
   ],
   imports: [
     AgmCoreModule.forRoot({
-        apiKey: "AIzaSyBgyhmaZ7VVV89vBsDRUt-83sdlLpVajrQ",
+        apiKey: "apikey",
         libraries: ["places"]
       }),
       FormsModule,
